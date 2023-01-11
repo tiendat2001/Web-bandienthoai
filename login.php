@@ -40,11 +40,14 @@ if(isset($_POST['username'])){
 	
 	<link rel="stylesheet" a href="css\font-awesome.min.css">
     <style>
-  <?php include "./assets/css/main.css" ?>
-  <?php include "./assets/css/base.css" ?>
-  <?php include "./assets/css/login.css" ?>
+    <?php include "./assets/css/main.css" ?>
+    <?php include "./assets/css/base.css" ?>
+    <?php include "./assets/css/login.css" ?>
+    </style>
+
+    
   
-</style>
+
 </head>
 <body>
 
@@ -101,7 +104,7 @@ if(isset($_POST['username'])){
             </li>
             <li class="header__navbar-item">Tiếng Việt</li>
             <li class="header__navbar-item">Đăng ký</li>
-            <li class="header__navbar-item">Đăng nhập</li>
+            <li id="btn_login" class="header__navbar-item">Đăng nhập</li>
         </ul>
 
 
@@ -128,20 +131,33 @@ if(isset($_POST['username'])){
 
 </div>
 
-    
-	<div class="container">
+   
+	<div class="container_login">
 	
     <img src="image/login.png"/>
 		<form method="POST" action="#"> 
 			<div class="form-input">
-				<input type="text" name="username" placeholder="Enter the User Name"/>	
+				<input class="form_input" type="text" name="username" placeholder="Enter the User Name"/>	
 			</div>
 			<div class="form-input">
-				<input type="password" name="password" placeholder="password"/>
+				<input class="form_input" type="password" name="password" placeholder="password"/>
 			</div>
 			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
 		</form>
 	</div>
+
+    <!-- bat su kien khi an nut dang nhap hien bang dang nhap -->
+    <script>
+       const login_btn = document.getElementById("btn_login");
+       login_btn.addEventListener("click",function(){
+        document.querySelector(".container_login").style.display="block"
+  
+ 
+  // setTimeout(myFunction, 3000)
+  
+  
+})
+    </script>
 </body>
 
 <?php /*
