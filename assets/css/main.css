@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+.header{
+    height:120px;
+    background-image: linear-gradient(#ee4d2d,#ff7337);
+    margin-bottom: 50px;
+}
+     
+    /* QR CODE  */
+
+.header__qr{
+    width: 186px;
+    background-color: white;
+    position: absolute;
+    left:0;
+    /* tinh theo vi tri the header__navbar-item */
+    top:150%;
+    padding:8px;
+    border-radius: 2px;
+    display: none;
+}
+
+.header__qr-img{
+    width:100%;
+}
+
+.header__qr-apps{
+    display:flex;
+    justify-content: space-between;
+}
+
+.header__qr-download{
+    height: 14px;
+}
+
+.header__item-has-qr:hover .header__qr{
+    display: block;
+
+}
+/* thanh navbar tong- chua 2 cai list 2 ben */
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* thut ra ngoai */
+.header__navbar-list{
+    padding:0;
+}
+
+/* cac thanh phan trong navbar list */
+.header__navbar-item{
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 8px;
+    font-size:1.3rem;
+    font-weight: 200;
+    color:white;
+    position: relative;
+}
+
+.header__navbar-item:hover{
+    color:rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.header__navbar-icon-link{
+    text-decoration: none;
+    color:white;
+    margin: 0 4px;
+}
+
+/* phan search chua ten shop, thanh search va icon cart */
+
+.header__search{
+    height:80px;
+    display: flex;
+    /* can tren duoi */
+    align-items: center;
+   
+}
+
+.header__shopname{
+    margin: 0 8px;
+    font-size:3rem;
+    font-weight: bold;
+    color:rgb(12, 12, 12);
+    font-style: italic;
+}
+.header__searchbar{
+    /* flex:1; */
+    height:40px;
+    border-radius: 2px;
+    background-color:white;
+    margin:0 20px;
+    width: 1150px;
+    display: flex;
+    align-items: center;
+}
+
+.header__searchbar-input-wrap{
+    flex:1;
+}
+.header__searchbar-input{
+    width: 100%;
+    height: 100%;
+    border:none;
+    outline:none;
+    font-size:1.4rem;
+    padding:0 16px;
+    border-radius: 3px;
+}
+
+.header__search-btn{
+    background-color: #ff7337;
+    border:none;
+    height: 34px;
+    width: 60px;
+    border-radius: 3px;
+    margin-right: 3px;
+    outline: none;
+}
+.header__search-btn:hover{
+    background-color: #ee4d2d;
+    cursor:pointer;
+}
+.header__search-btn-icon{
+    font-size: 1.4rem;
+    color: white;
+}
+
+
+/*-----------------------------------------  CONTAINER -----------------------------------------   */
+
+.container__deal {
+    max-width: 1200px;
+    margin:auto;
+    margin-bottom: 30px;
+}
+
+.container__deal img {
+    /* max-width: 1200px; */
+    height: 100%; 
+    width: 100%;
+}
+/*----------------------------------------- PHAN SLIDESHOW-----------------------------------------   */
+
+
+/* Slideshow container */
+.container__slideshow {
+    /* gioi han 3 anh */
+    max-width: 1200px;
+    margin:auto;
+    background-color: #ffd400;
+    padding-top:5px;
+    padding-bottom: 15px;
+    border-radius: 1rem;
+    margin-bottom: 10px;
+  }
+  
+ 
+.container__slideshow__title h2{
+    margin-bottom: 8px;
+    font-size:3rem;
+    color: white;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+}
+
+ 
+  .slideshow__items {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    /* de cach ra  */
+    margin: auto 5px;
+  }
+  
+  .slideshow__items img{
+      width: 97%;
+      border-radius: 12px;
+  }
+  .slideshow__items h1 {
+    color: #005baa;
+    line-height: 150%;
+  }
+  .slideshow__items p {
+    color: #979da3;
+    font-size: 1.1rem;
+  }
+
+  
+
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 1px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+
+  .active {
+    background-color: #005baa;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+/*----------------------------------  PHAN PRODUCT ------------------------------------*/
+.container_product{
+    max-width: 1200px;
+    margin:auto;
+   
+}
+
+.container__product__title{
+    text-align: center;
+    background-color: #6EB7EC;
+    border-radius: 1rem;
+    padding: 8px 0px;
+    margin-bottom: 8px;
+}
+
+.container__product__title h2{
+    font-size:4rem;
+    color: white;
+
+}
+.product__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #6EB7EC;
+    /* tao le tren duoi  */
+    padding:12px;
+    border-radius: 1rem;
+    margin-bottom: 30px;
+    row-gap: 10px;
+
+}
+
+.product__item{
+    /* tao khoang cach giua 2 san pham */
+    width: 19%;
+    /* padding: 12px; */
+    background-color: var( --white-color);
+    text-align: center;
+    border-radius: 1rem;
+    
+}
+
+
+.product__item img{
+    width:90%;
+    margin-bottom: 20px;
+    margin-top:1px;
+   
+}
+
+.product__item:hover{
+   transform: translateY(-5px);
+   
+}
+
+
+
+.product__item__button{
+    margin-bottom:10px;
+    height: 25px;
+}
+
+.product__item__button:hover{
+    background-color: #fe6132;
+}
+
+/* -------------------------------------PHAN PRODUCT LIST-------------------------------------  */
+
+.container__productList{
+    margin-top: 30px;
+    width: 1200px;
+    margin:auto;
+}
+
+.productList__title{
+    
+    background-color: #ED4514;
+    border-radius: 1rem;
+    padding: 8px 0px;
+    margin-bottom: 8px;
+}
+.productList__items{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ED4514;
+    /* tao le tren duoi  */
+    padding:12px;
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    
+    
+}
+
+.productList__title h3 {
+    font-size:3rem;
+    color:white;
+    margin-left:5px;
+}
+
+/* -------------------------------------PHAN GIO HANG -------------------------------------- */
+/* PHAN BANG GIO HANG */
+
+
+
+.container__cart{
+    /* can giua gio hang */
+    position: fixed;
+    right:0px;
+    width: 400px;
+    top:0px;
+    height: 1200px;
+    padding:12px 20px;
+    background-color: rgb(206, 187, 187);
+    overflow-y: scroll;
+    right:-100%;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.container__cart__tiltle{
+    text-align: center;
+}
+.container__table{
+    width: 100%;
+}
+
+.container__table tr td {
+    padding: 12px 0;
+    /* tao duong ke giua moi gian hang */
+    border-bottom: 1px solid rgb(197, 197, 197) ;
+ 
+}
+
+
+.td__product__img-name{
+    display: flex; 
+    align-items: center; 
+    text-align: left;
+}
+/* chinh anh trong gio hang */
+.td__product__img-name img{
+    width: 70px;
+}
+.container__total-price{
+    font-weight: bold;
+    text-align: right;
+    
+}
+
+
+.cart__btn-order{
+    text-align: center;
+}
+.cart__btn-order button{
+    height: 25px;
+}
+
+.cart__btn-order button:hover  {
+    background-color: #fe6132;
+}
+/* -------------------------------PHAN FOOTER-------------------------------- */
+.footer{
+    background-color: #f5f5f5;
+}
+
+.footer__row{
+    display:flex;
+    flex-wrap: wrap;
+    width:800px;
+    margin:auto;
+    gap:25px;
+    justify-content: center;
+    padding:20px 0;
+}
+
+.footer__row a{
+    text-decoration: none;
+}
+
+.footer__text h6{
+    font-size: 1rem;
+    text-align: center;
+    font-weight: normal;
+}
+
+.sidePicture{
+    position: fixed; 
+}
+.sidePicture-right{
+   
+    bottom: 20rem; 
+    right: 5.55rem; 
+   
+ }
+
+ .sidePicture-left{
+    bottom: 20rem; 
+    left: 5.55rem; 
+ }
+
+ .footer__iconshop{
+    color:rgb(247, 85, 10);
+    
+}
+.footer__cart-icon{
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.alert {
+    position: fixed;
+    bottom:10px;
+    left:10px;
+    padding:10px;
+    
+    width: 400px;
+    border-radius:5px;
+    box-shadow:0 0 15px 5px #ccc;
+    font-family:Quicksand;
+    font-size: 1.6rem;
+    visibility: hidden;
+    /* transition: visibility 3s, opacity 0.5s linear; */
+
+}
+
+.alert-addCartSuccess{
+    background-color: #a8f0c6;
+}
+
+.alert-addCartDanger{
+    background-color: #f7a7a3;
+}
+.alert__close{
+    position:absolute;
+    /* goc toa do theo the cha gan nhat co position */
+    width:30px;
+    height:30px;
+    opacity:0.5;
+    border-width:1px;
+    /* border-style:solid;
+    border-radius:50%; */
+    right:15px;
+    top:30px;
+    text-align:center;
+    font-size:1.6em;
+    cursor:pointer;
+}
+
+/* ---------------------------------------MODAL-----------------------------------  */
+/* the chua toan bo man hinh */
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex;
+}
+
+.modal__overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+
+.modal__body{
+    background-color: white;
+    border-radius: 5px;
+    margin:auto;
+    z-index: 3;
+    width: 300px;
+    height: 300px;
+    position: relative;
+}

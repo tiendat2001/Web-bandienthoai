@@ -1,0 +1,39 @@
+:root{
+    --white-color:#fff;
+    --text-color:#333;
+
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+    background-color: #f3f3f3;
+
+}
+
+.grid{
+    width: 1200px;
+    /* doi voi man hinh nho hon 1200 van full */
+    max-width: 100%;
+    /* tu dong can giua trai phai */
+    margin: 0 auto;
+    
+}
+
+.grid__full-width{
+    width: 100%;
+
+}
+
+.grid__row{
+    /* cac phan tu thuoc lop nay se nam ngang */
+    display: flex;
+    /* cac phan tu se xuong dong khi het */
+    flex-wrap: wrap;
+}
