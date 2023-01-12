@@ -96,8 +96,21 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
                             Hỗ trợ
                         </li>
                         <li class="header__navbar-item">Tiếng Việt</li>
-                        <li class="header__navbar-item">Đăng ký</li>
-                        <li class="header__navbar-item">Đăng nhập</li>
+                        
+
+                        <?php 
+                            $username= $_SESSION['username'];  
+                            $password=$_SESSION['password'];
+                            $select_account=mysqli_query($conn,"select * from account where username='".$username."'AND password='".$password."' limit 1");
+                            if(mysqli_num_rows($select_account)>0)
+                            {
+                                // echo"dat";
+                            $fetch_account=mysqli_fetch_assoc($select_account);       
+                            };
+                         ?>	
+
+                        <li style="font-weight:bold" class="header__navbar-item">Xin chào, <?php echo $fetch_account['nickname'];  ?> </li>
+                        <!-- <li class="header__navbar-item">Đăng nhập</li> -->
                     </ul>
 
 
@@ -513,9 +526,9 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     <img class="sidePicture sidePicture-right" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     <img class="sidePicture sidePicture-left" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
 
-    <?php $test= $_SESSION['username'];  ?>	
+   
     <p>your email : <span><?php 
-    echo $test ?></span></p>
+    echo $fetch_account['nickname']  ?></span></p>
 	<script src="app.js"></script>
 </body>
 

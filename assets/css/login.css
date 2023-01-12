@@ -1,8 +1,51 @@
+:root{
+    --white-color:#fff;
+    --text-color:#333;
+
+}
+
+*{
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+    background-color: rgba(124, 124, 124, 0.788)
+
+}
+
+.grid{
+    width: 1200px;
+    /* doi voi man hinh nho hon 1200 van full */
+    max-width: 100%;
+    /* tu dong can giua trai phai */
+    margin: 0 auto;
+    
+}
+
+.grid__full-width{
+    width: 100%;
+
+}
+
+.grid__row{
+    /* cac phan tu thuoc lop nay se nam ngang */
+    display: flex;
+    /* cac phan tu se xuong dong khi het */
+    flex-wrap: wrap;
+}
+
+
 body{
 	margin: 0 auto;
 	background-image: url("../image/technology.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 720px;
+
+
 }
 
 .modal-login{
@@ -23,14 +66,25 @@ body{
     background-color: rgba(0,0,0,0.4);
 
 }
+
+.noti-center{
+	position: absolute;
+    top: 50%;
+    left: 10%;
+	text-align: center;
+	font-size: 18px;
+	width: 1200px;
+ 
+	
+}
 .container_login{
 	width: 500px;
 	height: 450px;
 	text-align: center;
 	margin:  auto;
-	background-color: rgba(44, 62, 80,0.7);
+	background-color: rgba(255, 255, 255, 1);
 	position: relative;
-	/* display: none; */
+	display: none;
 	
 	z-index: 5;
 }
@@ -45,6 +99,18 @@ body{
 
 .form__input-wrap{
 	padding:0 2rem;
+}
+.login-failed{
+	
+	margin:2rem 2rem;
+	background-color: #ff0000;
+	height: 45px;
+	text-align: center;
+	/* can giua theo ca chieu ngang lan doc */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
 }
 .form__input{
 	margin-top: 30px;
