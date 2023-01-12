@@ -38,7 +38,7 @@ if(isset($_POST['username'])){
 <head>
 	<title> Login Form in HTML5 and CSS3</title>
 	
-	<link rel="stylesheet" a href="css\font-awesome.min.css">
+	<link rel="stylesheet" a href="assets/fonts/fontawesome/css/all.min.css">
     <style>
     <?php include "./assets/css/main.css" ?>
     <?php include "./assets/css/base.css" ?>
@@ -130,33 +130,48 @@ if(isset($_POST['username'])){
 
 
 </div>
+<!-- 
+<div class="modal-login">
+        <div class="modal__overlay">
 
-   
+        </div>
+</div> -->
 	<div class="container_login">
-	
-    <img src="image/login.png"/>
-		<form method="POST" action="#"> 
-			<div class="form-input">
-				<input class="form_input" type="text" name="username" placeholder="Enter the User Name"/>	
-			</div>
-			<div class="form-input">
-				<input class="form_input" type="password" name="password" placeholder="password"/>
-			</div>
-			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
-		</form>
-	</div>
+     
+        <div class="login__title">
+            <h3 >Đăng nhập</h3>
+        </div>
+        
+            <form method="POST" action="#"> 
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="username" placeholder="Tên đăng nhập"/>	
+                </div>
+                <div class="form__input-wrap">
+                    <input class="form__input" type="password" name="password" placeholder="Mật khẩu"/>
+                </div>
+                <div class="form__input-wrap">
+                    <input type="submit" type="submit" value="Đăng nhập" class="btn-login"/>
+                </div>
+               
+            </form>
+        
+            <button id="btn__login-close">X</button>
+    </div>
+   
+
+
 
     <!-- bat su kien khi an nut dang nhap hien bang dang nhap -->
     <script>
        const login_btn = document.getElementById("btn_login");
        login_btn.addEventListener("click",function(){
         document.querySelector(".container_login").style.display="block"
-  
- 
-  // setTimeout(myFunction, 3000)
-  
-  
 })
+
+        const login_btn_close = document.getElementById("btn__login-close");
+        login_btn_close.addEventListener("click",function(){
+            document.querySelector(".container_login").style.display="none"
+        })
     </script>
 </body>
 
