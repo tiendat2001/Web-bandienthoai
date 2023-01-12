@@ -14,7 +14,8 @@ if(isset($_POST['username'])){
     $uname=$_POST['username'];
     $password=$_POST['password'];
     
-    $sql="select * from account where username='".$uname."'AND password='".$password."' limit 1";
+    // check xem tai khoan co la user hay ko
+    $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='user' limit 1";
     
     $result = $conn -> query($sql);
     
@@ -24,12 +25,24 @@ if(isset($_POST['username'])){
         header('Location: http://localhost/Web-bandienthoai/web.php');
         exit();
     }
+    // neu ko thi tiep tuc check xem co phai admin hay ko
     else{
-        
-        echo '<script type="text/JavaScript"> 
+        $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='admin' limit 1"; 
+        $result = $conn -> query($sql);  
+        if( $result->num_rows ==1){
+        $_SESSION['username']= $uname;
+        $_SESSION['password']= $password;
+        header('Location: http://localhost/Web-bandienthoai/index.php');
+        exit();
+        }
+        // vua ko phai la admin, user thi sai mat khau
+        else{
+            echo '<script type="text/JavaScript"> 
         alert("Sai tên đăng nhập hoặc mật khẩu")
       
      </script>';
+        }
+        
     //  header('Location: http://localhost/Web-bandienthoai/login.php');
     }
         /*
