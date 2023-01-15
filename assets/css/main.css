@@ -341,6 +341,7 @@
     right:-100%;
     z-index: 1;
     transition: all 0.3s ease;
+    text-align: center;
 }
 .container__cart__tiltle{
     text-align: center;
@@ -361,10 +362,11 @@
     display: flex; 
     align-items: center; 
     text-align: left;
+   
 }
 /* chinh anh trong gio hang */
 .td__product__img-name img{
-    width: 70px;
+    width: 50px;
 }
 .container__total-price{
     font-weight: bold;

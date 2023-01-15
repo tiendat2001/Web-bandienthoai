@@ -1,9 +1,3 @@
-<?php 
-@include 'database.php';
-@include 'config.php';
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,15 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- reset css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/admin.css"> -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/admin.css">
     <!-- font icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css" />
 
     <title>adminPage</title>
     <style>
-   <?php include "./assets/css/admin.css" ?>
-  <?php include "./assets/css/base.css" ?> 
+  /* <?php include "./assets/css/main.css" ?>
+  <?php include "./assets/css/base.css" ?> */
 </style>
 
 </head>
@@ -47,31 +41,8 @@
                 </thead>
 
                 <tbody class="cartTbl_body">
-                <?php 
-                    $select_product=mysqli_query($conn,"SELECT * FROM product");
-                    if(mysqli_num_rows($select_product)>0){
-                        // echo"dat";
-                        while($fetch_product=mysqli_fetch_assoc($select_product)){
-                            ?>
+                    
                     <tr>
-                        <td class="td__product__name">
-                        <?php echo $fetch_product['name'];?>
-                        </td>
-                        <td class="td__product__img">
-                            <img  src="<?php echo $fetch_product['image'];?>" alt="">                         
-                        </td>
-                        <td> <h3 style="display: inline;" class="product__price"><?php echo $fetch_product['price'];?></h3></td>
-                        <td class="td__product__name">
-                        <?php echo $fetch_product['type'];?>
-                        </td>
-                        <td style="cursor:pointer">XÓA</td>
-                    </tr>
-                <?php
-                        };
-                    };
-
-                ?>
-                    <!-- <tr>
                         <td class="td__product__name">
                             Điện thoại IPHONE 14
                         </td>
@@ -83,7 +54,7 @@
                            IPHONE
                         </td>
                         <td style="cursor:pointer">XÓA</td>
-                    </tr> -->
+                    </tr>
 
                  
 

@@ -1,0 +1,35 @@
+
+.container__product{
+    /* can giua danh muc san pham */
+    margin:auto;
+    width: 1200px;
+    text-align: center;
+}
+.container__product__tiltle{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    
+}
+.container__table{
+    width: 100%;
+}
+
+.container__table tr td {
+    padding: 12px 0;
+    /* tao duong ke giua moi gian hang */
+    border-bottom: 1px solid rgb(197, 197, 197) ;
+ 
+}
+
+
+.td__product__name{
+  text-align: center;
+}
+/* chinh anh trong gio hang */
+.td__product__img img{
+    width: 70px;
+}
+
+
+
