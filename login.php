@@ -1,11 +1,6 @@
 <?php
 
-   $db_name = 'Web bán điện thoại';
-   $user_name = 'root';
-   $user_password = '';
-
-//    $conn = new PDO($db_name, $user_name, $user_password);
-$conn = new mysqli("localhost",$user_name,$user_password,$db_name);
+@include 'database.php';
 @include 'config.php';
 session_start();
 
@@ -32,7 +27,7 @@ if(isset($_POST['username'])){
         if( $result->num_rows ==1){
         $_SESSION['username']= $uname;
         $_SESSION['password']= $password;
-        header('Location: http://localhost/Web-bandienthoai/index.php');
+        header('Location: http://localhost/Web-bandienthoai/adminWeb.php');
         exit();
         }
         // vua ko phai la admin, user thi sai mat khau

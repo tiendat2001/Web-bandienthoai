@@ -1,20 +1,12 @@
 <?php
-
+@include 'database.php';
 @include 'config.php';
 session_start();
 
- $db_name = 'web bán điện thoại';
- $user_name = 'root';
- $user_password = '';
-
-//    $conn = new PDO($db_name, $user_name, $user_password);
-$conn = new mysqli("localhost",$user_name,$user_password,$db_name);
-  
 
 // if(!isset($_SESSION['username'])){
 //    header('location:login.php');
 // }      
-
 ?>
 
 
@@ -33,7 +25,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     <!-- font icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css" />
 
-    <title>WEB</title>
+    <title>Bandienthoai</title>
     <style>
   <?php include "./assets/css/main.css" ?>
   <?php include "./assets/css/base.css" ?>
