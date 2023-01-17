@@ -38,6 +38,7 @@
     top:15%;
     left:25%;
     background-color: rgb(255, 255, 255);
+    display: none;
 
 }
 
@@ -79,4 +80,11 @@
 .form__input-wrap-submit{
     display: flex;
     justify-content: center;
+}
+
+#openAddForm{
+    position: fixed;
+    left:10px;
+    
+    bottom:10px;
 }

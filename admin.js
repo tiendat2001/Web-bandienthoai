@@ -21,10 +21,21 @@ function deleteCart(){
 
 // XOA TRONG DATABASE, GUI THONG TIN DEN DELETE.PHP DE XOA
 function deleteRow(productName) {
-  alert("productName")
+  
   //pass the id variable to the PHP script using an HTTP request (e.g. using jQuery or Fetch API)
   $.post('deleteProduct.php', {productName: productName}, function(data) {
       //truyen alert tu delete.php sang 
     alert(data);
   });
 }
+
+
+// nut hien form them san pham
+
+// var btnAddForm = document.querySelector(".openAddForm")
+// btnAddForm.addEventListener("click", openAddForm);
+// function openAddForm(){
+//   console.log("Dat")
+//   var addForm = document.querySelector(".container__addProduct")
+//   addForm.style.visibility="visible"
+// }

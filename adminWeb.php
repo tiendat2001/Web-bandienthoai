@@ -115,7 +115,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     </section>
 
     <!-- FORM THEM SAN PHAM -->
-    <!-- <div id="addProduct" class="container__addProduct">
+    <div id="addProduct" class="container__addProduct">
         
         <div class="addProduct__title">
                 <h3>THÊM SẢN PHẨM</h3>
@@ -139,12 +139,12 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 
 
                 <div class="form__input-wrap form__input-wrap-submit ">
-                    <input type="submit" type="submit" value="Đăng nhập" class="btn-submit" />
+                    <input type="submit" type="submit" value="XÁC NHẬN" class="btn-submit" />
                 </div>
 
             </form>
-    
-    </div> -->
+    <button id ="closeAddForm">X</button>
+    </div>
     
 <!-- 
     <script>
@@ -161,42 +161,59 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     <?php
    
    
-    // if(isset($_POST['name']) && ! empty($_POST['name'])) {
-    //     $name = $_POST['name'];
-    //     $img = $_POST['image'];
-    //     $price = $_POST['price'];
-    //     $type = $_POST['type'];
+    if(isset($_POST['name']) && ! empty($_POST['name'])) {
+        $name = $_POST['name'];
+        $img = $_POST['image'];
+        $price = $_POST['price'];
+        $type = $_POST['type'];
 
-    //     $sql = "SELECT * FROM product WHERE name='$name'";
-    //     $result = mysqli_query($conn, $sql);
-    //     $count = mysqli_num_rows($result);
+        $sql = "SELECT * FROM product WHERE name='$name'";
+        $result = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($result);
 
-    //     if($count > 0) {
-    //         echo "Product name already exists";
-    //     } else {
-    //         //code to insert new product
-    //         $query = "INSERT INTO product (name,image,price,type) 
-    //                 VALUES ('$name', '$img', '$price','$type')";
-    //         if ($conn->query($query) === TRUE) {
-    //             echo "New product added successfully";
-    //             echo '<meta http-equiv="refresh" content="0">';
+        if($count > 0) {
+            echo "Product name already exists";
+        } else {
+            //code to insert new product
+            $query = "INSERT INTO product (name,image,price,type) 
+                    VALUES ('$name', '$img', '$price','$type')";
+            if ($conn->query($query) === TRUE) {
+                echo "New product added successfully";
+                echo '<meta http-equiv="refresh" content="0">';
                
-    //         } else {
-    //             echo "Error: " . $query . "<br>" . $conn->error;
-    //         }
-    //     }
-    //     $_POST = NULL;
-    //     $db = null;
+            } else {
+                echo "Error: " . $query . "<br>" . $conn->error;
+            }
+        }
+        $_POST = NULL;
+        $db = null;
 
-    // }         
+    }         
    
 
     ?>
     
+<footer>
+    <button id="openAddForm">THÊM SẢN PHẨM</button>
+
+        
     
+
+</footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="admin.js"></script>
 
+<script>
+const openAddForm_btn = document.getElementById("openAddForm");
+openAddForm_btn.addEventListener("click", function() {
+    document.querySelector(".container__addProduct").style.display = "block"
+})
+
+const btn_closeAddForm = document.getElementById("closeAddForm");
+btn_closeAddForm.addEventListener("click", function() {
+    document.querySelector(".container__addProduct").style.display = "none"
+})
+</script>
     
 
 </body>
