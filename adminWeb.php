@@ -1,14 +1,21 @@
 <?php 
-@include 'database.php';
 @include 'config.php';
+
+   $db_name = 'Web bán điện thoại';
+   $user_name = 'root';
+   $user_password = '';
+
+//    $conn = new PDO($db_name, $user_name, $user_password);
+$conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 ?>
 
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
 
 <head>
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +35,8 @@
 </head>
 
 <body>
+
+    <!-- HIEN DANH MUC SAN PHAM TU DATABASE -->
     <section class="container__product">
        <div class="container__product__tiltle">
         <h2>DANH MỤC SẢN PHẨM </h2>
@@ -43,12 +52,13 @@
                         <th>GIÁ</th>
                         <th>LOẠI</th>
                         <th>CHỌN</th>
+                        <th>CHỌN</th>
                     </tr>
                 </thead>
 
                 <tbody class="cartTbl_body">
                 <?php 
-                    $select_product=mysqli_query($conn,"SELECT * FROM product");
+                    $select_product=mysqli_query($conn,"SELECT * FROM product ORDER BY type ");
                     if(mysqli_num_rows($select_product)>0){
                         // echo"dat";
                         while($fetch_product=mysqli_fetch_assoc($select_product)){
@@ -64,7 +74,13 @@
                         <td class="td__product__name">
                         <?php echo $fetch_product['type'];?>
                         </td>
-                        <td style="cursor:pointer">XÓA</td>
+                        <?php 
+                            echo '<td class="product-delete" style="cursor:pointer" onClick="deleteRow(\''.$fetch_product['name'].'\')">XÓA</td>';
+                        ?>
+                       
+                       <td class="product-edit">
+                        CHỈNH SỬA
+                        </td>
                     </tr>
                 <?php
                         };
@@ -98,7 +114,90 @@
         </form>
     </section>
 
+    <!-- FORM THEM SAN PHAM -->
+    <!-- <div id="addProduct" class="container__addProduct">
+        
+        <div class="addProduct__title">
+                <h3>THÊM SẢN PHẨM</h3>
+            </div>
+            
+            <form id="addForm" method="POST" action="#">
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" />
+                </div>
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" />
+                </div>
 
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="price" placeholder="GIÁ" />
+                </div>
+
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="type" placeholder="LOẠI" />
+                </div>
+
+
+                <div class="form__input-wrap form__input-wrap-submit ">
+                    <input type="submit" type="submit" value="Đăng nhập" class="btn-submit" />
+                </div>
+
+            </form>
+    
+    </div> -->
+    
+<!-- 
+    <script>
+    var form = document.getElementById("addForm");
+
+  // Add an event listener for the submit event
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // prevent the form from submitting
+    var addForm = document.querySelector(".container__addProduct")
+    addForm.style.visibility="hidden"
+    
+  });
+    </script> -->
+    <?php
+   
+   
+    // if(isset($_POST['name']) && ! empty($_POST['name'])) {
+    //     $name = $_POST['name'];
+    //     $img = $_POST['image'];
+    //     $price = $_POST['price'];
+    //     $type = $_POST['type'];
+
+    //     $sql = "SELECT * FROM product WHERE name='$name'";
+    //     $result = mysqli_query($conn, $sql);
+    //     $count = mysqli_num_rows($result);
+
+    //     if($count > 0) {
+    //         echo "Product name already exists";
+    //     } else {
+    //         //code to insert new product
+    //         $query = "INSERT INTO product (name,image,price,type) 
+    //                 VALUES ('$name', '$img', '$price','$type')";
+    //         if ($conn->query($query) === TRUE) {
+    //             echo "New product added successfully";
+    //             echo '<meta http-equiv="refresh" content="0">';
+               
+    //         } else {
+    //             echo "Error: " . $query . "<br>" . $conn->error;
+    //         }
+    //     }
+    //     $_POST = NULL;
+    //     $db = null;
+
+    // }         
+   
+
+    ?>
+    
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="admin.js"></script>
+
+    
 
 </body>
 </html>

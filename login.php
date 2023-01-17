@@ -158,6 +158,7 @@ if(isset($_POST['username'])){
 </div> -->
     <div class="noti-center">
         <h3>Vui lòng đăng nhập để xem sản phẩm</h3>
+        <button class="btn__login-center">ĐĂNG NHẬP</button>
     </div>
 
     <div class="container_login">
