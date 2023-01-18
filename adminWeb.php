@@ -36,6 +36,21 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 
 <body>
 
+
+    <div class="wrapper">
+        
+        <div class="sidebar">
+            <h2 class="sidebar__shopname">BANDIENTHOAI</h2>
+                <ul>
+                <li><a href="#"><i class="fas fa-home sidebar__icon"></i>Trang chủ</a></li>
+                <li><a href="#"><i class="fas fa-user sidebar__icon"></i>Tài khoản</a></li>
+                <li><a href="#"><i class="fa-solid fa-cart-shopping sidebar__icon"></i></i>Đơn hàng</a></li>
+                <li><a href="#"><i class="fa-solid fa-message sidebar__icon"></i>Tin nhắn</a></li>
+                </ul>
+        </div>
+
+    </div>
+
     <!-- HIEN DANH MUC SAN PHAM TU DATABASE -->
     <section class="container__product">
        <div class="container__product__tiltle">
