@@ -51,11 +51,18 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 
     </div>
 
-    <!-- HIEN DANH MUC SAN PHAM TU DATABASE -->
+    <!------------------------------------------ DANH MUC SAN PHAM ------------------------------------------->
     <section class="container__product">
        <div class="container__product__tiltle">
         <h2>DANH MỤC SẢN PHẨM </h2>
-        <button id="openAddForm">Thêm sản phẩm</button>
+        <div class="container__product__btn-searchbar">
+            
+            <div  class="container__product__searchbar">
+            <input type="text" class="container__searchbar-input" placeholder="Nhập để tìm kiếm sản phẩm">
+            </div>
+            <button  id="openAddForm">Thêm sản phẩm</button>
+        </div>
+     
        </div>
        
         <form action="">
@@ -139,18 +146,18 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
             
             <form id="addForm" method="POST" action="#">
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" />
+                    <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
                 </div>
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" />
-                </div>
-
-                <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="price" placeholder="GIÁ" />
+                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
                 </div>
 
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="type" placeholder="LOẠI" />
+                    <input class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                </div>
+
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="type" placeholder="LOẠI" required>
                 </div>
 
 
