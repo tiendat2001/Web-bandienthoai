@@ -40,6 +40,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     <section class="container__product">
        <div class="container__product__tiltle">
         <h2>DANH MỤC SẢN PHẨM </h2>
+        <button id="openAddForm">Thêm sản phẩm</button>
        </div>
        
         <form action="">
@@ -114,7 +115,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
         </form>
     </section>
 
-    <!-- FORM THEM SAN PHAM -->
+    <!------------------------ FORM THEM SAN PHAM ----------------------------------->
     <div id="addProduct" class="container__addProduct">
         
         <div class="addProduct__title">
@@ -158,6 +159,8 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     
   });
     </script> -->
+
+    <!------------------------ THÊM SẢN PHẨM VÀO DATABASE  -------------------------------------------->
     <?php
    
    
@@ -172,15 +175,27 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
         $count = mysqli_num_rows($result);
 
         if($count > 0) {
-            echo "Product name already exists";
+            echo "<script type='text/javascript'>alert('SẢN PHẨM ĐÃ TỒN TẠI');</script>";
         } else {
             //code to insert new product
             $query = "INSERT INTO product (name,image,price,type) 
                     VALUES ('$name', '$img', '$price','$type')";
             if ($conn->query($query) === TRUE) {
-                echo "New product added successfully";
-                echo '<meta http-equiv="refresh" content="0">';
                
+
+
+//                 echo '
+//                 <script type="text/javascript">
+//                 $(document).ready(function() {
+//                     // some code here
+//                   });
+//                 </script>
+// ';
+//  reload lại trang web
+                echo '<meta http-equiv="refresh" content="0">';
+                echo "<script type='text/javascript'>
+                alert('THÊM THÀNH CÔNG');
+                </script>";
             } else {
                 echo "Error: " . $query . "<br>" . $conn->error;
             }
@@ -194,27 +209,17 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     ?>
     
 <footer>
-    <button id="openAddForm">THÊM SẢN PHẨM</button>
-
-        
-    
+        <div class="alert alert-addCartSuccess">
+            <h3>Thêm vào giỏ hàng thành công</h3>
+            <a class="alert__close">&times</a>
+        </div>
 
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="admin.js"></script>
-
 <script>
-const openAddForm_btn = document.getElementById("openAddForm");
-openAddForm_btn.addEventListener("click", function() {
-    document.querySelector(".container__addProduct").style.display = "block"
-})
-
-const btn_closeAddForm = document.getElementById("closeAddForm");
-btn_closeAddForm.addEventListener("click", function() {
-    document.querySelector(".container__addProduct").style.display = "none"
-})
+    <?php require_once("admin.js");?>
 </script>
-    
+
 
 </body>
 </html>

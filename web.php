@@ -227,7 +227,7 @@ session_start();
                 <div class="container__productList">
 
                     <div class="productList__title">
-                        <h3>GỢI Ý HÔM NAY</h3>
+                        <h3>DANH MỤC SẢN PHẨM</h3>
 
                     </div>
 

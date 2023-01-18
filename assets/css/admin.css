@@ -6,11 +6,26 @@
     text-align: center;
 }
 .container__product__tiltle{
-    text-align: center;
+    text-align: left;
     font-size: 20px;
-    margin-bottom: 50px;
+    /* margin-bottom: 70px; */
+    width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
 }
+
+
+#openAddForm{ 
+    width: 140px;
+    height: 30px;
+    background-color: #5B42F3;
+    font-size:15px;
+}
+
+
 .container__table{
     width: 100%;
 }
@@ -41,7 +56,15 @@
     display: none;
 
 }
-
+/* nut X DONG FORM */
+#closeAddForm{
+    background-color: red;
+    position: absolute;
+    top:10px;
+    right:10px;
+    width: 20px;
+    height: 20px;
+}
 
 .addProduct__title{   	
 	text-align: center;
@@ -82,9 +105,24 @@
     justify-content: center;
 }
 
-#openAddForm{
+/* bang hien thong bao them thanh cong */
+
+.alert {
     position: fixed;
-    left:10px;
-    
     bottom:10px;
+    left:10px;
+    padding:10px;
+    
+    width: 400px;
+    border-radius:5px;
+    box-shadow:0 0 15px 5px #ccc;
+    font-family:Quicksand;
+    font-size: 1.6rem;
+    visibility: hidden;
+    /* transition: visibility 3s, opacity 0.5s linear; */
+
+}
+
+.alert-addCartSuccess{
+    background-color: #a8f0c6;
 }

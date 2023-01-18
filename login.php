@@ -200,6 +200,12 @@ login_btn.addEventListener("click", function() {
     document.querySelector(".container_login").style.display = "block"
 })
 
+// nut dang nhap thu 2
+const login_btn_1 = document.getElementsByClassName("btn__login-center");
+login_btn_1[0] .addEventListener("click", function() {
+    document.querySelector(".container_login").style.display = "block"
+})
+// nut dong form dang nhap
 const login_btn_close = document.getElementById("btn__login-close");
 login_btn_close.addEventListener("click", function() {
     document.querySelector(".container_login").style.display = "none"

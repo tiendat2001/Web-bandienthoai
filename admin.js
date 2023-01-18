@@ -39,3 +39,15 @@ function deleteRow(productName) {
 //   var addForm = document.querySelector(".container__addProduct")
 //   addForm.style.visibility="visible"
 // }
+
+
+// su kien dong mo form them san pham 
+const openAddForm_btn = document.getElementById("openAddForm");
+openAddForm_btn.addEventListener("click", function() {
+    document.querySelector(".container__addProduct").style.display = "block"
+})
+
+const btn_closeAddForm = document.getElementById("closeAddForm");
+btn_closeAddForm.addEventListener("click", function() {
+    document.querySelector(".container__addProduct").style.display = "none"
+})
