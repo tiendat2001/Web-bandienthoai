@@ -18,7 +18,7 @@
 
 // XOA TRONG DATABASE, GUI THONG TIN DEN DELETE.PHP DE XOA
 function deleteRow(productName) {
-  if (confirm("Are you sure you want to delete this item?")) {
+  if (confirm("Bạn có chắc chắn muốn xóa sản phẩm?")) {
     // xoa trong UI, tim nut duoc chon de xoa
     var cartItem = document.querySelectorAll(".cartTbl_body tr")  
     for( var i =0;i<cartItem.length;i++){
@@ -38,16 +38,21 @@ function deleteRow(productName) {
 }
 
 // ---------------------------------PHAN SUA SAN PHAM------------------------------------------------------
-function editRow(productName,productImage,productPrice,productType){
+function openEditForm(productName,productImage,productPrice,productType){
   // mo form edit san pham
   openEditFormUI()
   document.getElementById("editForm__name").value=productName
   document.getElementById("editForm__image").value=productImage
   document.getElementById("editForm__price").value=productPrice
   document.getElementById("editForm__type").value=productType
+
 }
 
 
+// $.post('editProduct.php', {productName: productName,productImage: productImage,productPrice: productPrice,productType: productType}, function(data) {
+//   //truyen alert tu delete.php sang 
+// alert(data);
+// });
 // su kien dong mo form them san pham 
 const openAddForm_btn = document.getElementById("openAddForm");
 openAddForm_btn.addEventListener("click", function() {

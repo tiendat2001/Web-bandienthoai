@@ -7,6 +7,7 @@
 
 //    $conn = new PDO($db_name, $user_name, $user_password);
 $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
+session_start();
 ?>
 
 
@@ -102,7 +103,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
                         ?>
                        
                        <?php 
-                            echo '<td  class="product-edit" style="cursor:pointer" onClick="editRow(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\',\''.$fetch_product['price'].'\',\''.$fetch_product['type'].'\')">CHỈNH SỬA</td>';
+                            echo '<td  class="product-edit" style="cursor:pointer" onClick="openEditForm(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\',\''.$fetch_product['price'].'\',\''.$fetch_product['type'].'\')">CHỈNH SỬA</td>';
                         ?>
                     </tr>
                 <?php
@@ -162,7 +163,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 
 
                 <div class="form__input-wrap form__input-wrap-submit ">
-                    <input type="submit" type="submit" value="XÁC NHẬN" class="btn-submit" />
+                    <input type="submit" type="submit" value="THÊM" class="btn-submit" />
                 </div>
 
             </form>
@@ -203,7 +204,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 //  reload lại trang web
                 echo '<meta http-equiv="refresh" content="0">';
                 echo "<script type='text/javascript'>
-                alert('THÊM THÀNH CÔNG');
+                window.onload=function(){alert('THÊM THÀNH CÔNG');};
                 </script>";
             } else {
                 echo "Error: " . $query . "<br>" . $conn->error;
@@ -223,9 +224,9 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
                 <h3>SỬA THÔNG TIN SẢN PHẨM</h3>
             </div>
             
-            <form id="addForm" method="POST" action="#">
+            <form id="addForm" method="POST" action="editProduct.php">
                 <div class="form__input-wrap">
-                    <input id="editForm__name" class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
+                    <input id="editForm__name" class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" readonly>
                 </div>
                 <div class="form__input-wrap">
                     <input id="editForm__image" class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
@@ -241,14 +242,22 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
 
 
                 <div class="form__input-wrap form__input-wrap-submit ">
-                    <input type="submit" type="submit" value="XÁC NHẬN" class="btn-submit" />
+                    <input type="submit" type="submit" value="SỬA" class="btn-submit" />
                 </div>
 
             </form>
     <button id ="closeEditForm">X</button>
     </div>
 
-
+<?php
+      if(isset($_SESSION["successEdit_message"]) && !empty($_SESSION["successEdit_message"])){
+        echo "<script type='text/javascript'>
+        window.onload=function(){alert('SỬA THÔNG TIN SẢN PHẨM THÀNH CÔNG');};
+                </script>";
+      
+        unset($_SESSION["successEdit_message"]);
+    }
+?>
 <footer>
         <!-- <div class="alert alert-addCartSuccess">
             <h3>Thêm vào giỏ hàng thành công</h3>
