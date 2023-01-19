@@ -38,9 +38,13 @@ function deleteRow(productName) {
 }
 
 // ---------------------------------PHAN SUA SAN PHAM------------------------------------------------------
-function editRow(productName,productImage){
+function editRow(productName,productImage,productPrice,productType){
+  // mo form edit san pham
   openEditFormUI()
-  alert(productImage)
+  document.getElementById("editForm__name").value=productName
+  document.getElementById("editForm__image").value=productImage
+  document.getElementById("editForm__price").value=productPrice
+  document.getElementById("editForm__type").value=productType
 }
 
 

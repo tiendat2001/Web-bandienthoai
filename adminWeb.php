@@ -102,7 +102,7 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
                         ?>
                        
                        <?php 
-                            echo '<td  class="product-edit" style="cursor:pointer" onClick="editRow(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\')">CHỈNH SỬA</td>';
+                            echo '<td  class="product-edit" style="cursor:pointer" onClick="editRow(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\',\''.$fetch_product['price'].'\',\''.$fetch_product['type'].'\')">CHỈNH SỬA</td>';
                         ?>
                     </tr>
                 <?php
@@ -225,18 +225,18 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
             
             <form id="addForm" method="POST" action="#">
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
+                    <input id="editForm__name" class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
                 </div>
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
-                </div>
-
-                <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                    <input id="editForm__image" class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
                 </div>
 
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="type" placeholder="LOẠI" required>
+                    <input id="editForm__price" class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                </div>
+
+                <div class="form__input-wrap">
+                    <input id="editForm__type" class="form__input" type="text" name="type" placeholder="LOẠI" required>
                 </div>
 
 
