@@ -101,9 +101,9 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
                             echo '<td class="product-delete" style="cursor:pointer" onClick="deleteRow(\''.$fetch_product['name'].'\')">XÓA</td>';
                         ?>
                        
-                       <td class="product-edit">
-                        CHỈNH SỬA
-                        </td>
+                       <?php 
+                            echo '<td  class="product-edit" style="cursor:pointer" onClick="editRow(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\')">CHỈNH SỬA</td>';
+                        ?>
                     </tr>
                 <?php
                         };
@@ -169,19 +169,6 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
     <button id ="closeAddForm">X</button>
     </div>
     
-<!-- 
-    <script>
-    var form = document.getElementById("addForm");
-
-  // Add an event listener for the submit event
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // prevent the form from submitting
-    var addForm = document.querySelector(".container__addProduct")
-    addForm.style.visibility="hidden"
-    
-  });
-    </script> -->
-
     <!------------------------ THÊM SẢN PHẨM VÀO DATABASE  -------------------------------------------->
     <?php
    
@@ -226,17 +213,51 @@ $conn = new mysqli("localhost",$user_name,$user_password,$db_name);
         $db = null;
 
     }         
-   
-
     ?>
     
+
+<!----------------------------------FORM CHỈNH SỬA SẢN PHẨM-------------------------------  -->
+<div id="editProduct" class="container__editProduct">
+        
+        <div class="addProduct__title">
+                <h3>SỬA THÔNG TIN SẢN PHẨM</h3>
+            </div>
+            
+            <form id="addForm" method="POST" action="#">
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
+                </div>
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
+                </div>
+
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                </div>
+
+                <div class="form__input-wrap">
+                    <input class="form__input" type="text" name="type" placeholder="LOẠI" required>
+                </div>
+
+
+                <div class="form__input-wrap form__input-wrap-submit ">
+                    <input type="submit" type="submit" value="XÁC NHẬN" class="btn-submit" />
+                </div>
+
+            </form>
+    <button id ="closeEditForm">X</button>
+    </div>
+
+
 <footer>
-        <div class="alert alert-addCartSuccess">
+        <!-- <div class="alert alert-addCartSuccess">
             <h3>Thêm vào giỏ hàng thành công</h3>
             <a class="alert__close">&times</a>
-        </div>
+        </div> -->
 
 </footer>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     <?php require_once("admin.js");?>

@@ -37,16 +37,11 @@ function deleteRow(productName) {
   
 }
 
-
-// nut hien form them san pham
-
-// var btnAddForm = document.querySelector(".openAddForm")
-// btnAddForm.addEventListener("click", openAddForm);
-// function openAddForm(){
-//   console.log("Dat")
-//   var addForm = document.querySelector(".container__addProduct")
-//   addForm.style.visibility="visible"
-// }
+// ---------------------------------PHAN SUA SAN PHAM------------------------------------------------------
+function editRow(productName,productImage){
+  openEditFormUI()
+  alert(productImage)
+}
 
 
 // su kien dong mo form them san pham 
@@ -59,3 +54,22 @@ const btn_closeAddForm = document.getElementById("closeAddForm");
 btn_closeAddForm.addEventListener("click", function() {
     document.querySelector(".container__addProduct").style.display = "none"
 })
+
+
+// SU KIEN DONG MO FORM SUA THONG TIN SAN PHAM
+function openEditFormUI(){
+  const openEditForm_btn = document.querySelectorAll(".product-edit");
+  for(var i =0;i<openEditForm_btn.length;i++){
+    
+    openEditForm_btn[i].addEventListener("click", function() {
+    document.querySelector(".container__editProduct").style.display = "block"
+  })
+  }
+  const closeEditForm_btn = document.getElementById("closeEditForm");
+  closeEditForm_btn.addEventListener("click", function() {
+      document.querySelector(".container__editProduct").style.display = "none"
+  })
+  
+}
+
+openEditFormUI()
