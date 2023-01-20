@@ -138,7 +138,7 @@ session_start();
                     <div class="product__items">
 
                         <?php 
-					$select_product=mysqli_query($conn,"SELECT  * FROM product WHERE type='iphone' ORDER BY CAST(price AS FLOAT) ");
+					$select_product=mysqli_query($conn,"SELECT  * FROM product WHERE type='iphone' ORDER BY CAST(price AS FLOAT) DESC ");
 					if(mysqli_num_rows($select_product)>0)
 					{
 						// echo"dat";
@@ -235,7 +235,7 @@ session_start();
 
 
                     <?php 
-                            $select_product=mysqli_query($conn,"SELECT * FROM product ORDER BY cast(price as float) ");
+                            $select_product=mysqli_query($conn,"SELECT * FROM product ORDER BY cast(price as float) DESC ");
                             if(mysqli_num_rows($select_product)>0){
                                 // echo"dat";
                                 while($fetch_product=mysqli_fetch_assoc($select_product)){

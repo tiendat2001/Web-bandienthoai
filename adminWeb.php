@@ -73,7 +73,7 @@ session_start();
                     <tr>
                         <th>TÊN SẢN PHẨM</th>
                         <th>ẢNH</th>
-                        <th>GIÁ</th>
+                        <th>GIÁ (đồng)</th>
                         <th>LOẠI</th>
                         <th>CHỌN</th>
                         <th>CHỌN</th>
