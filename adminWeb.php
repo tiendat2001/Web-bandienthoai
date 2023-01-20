@@ -240,7 +240,7 @@ session_start();
                 </div>
 
                 <div class="form__input-wrap">
-                    <input id="editForm__price" class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                    <input id="editForm__price" class="form__input" type="number" name="price" placeholder="GIÁ" required>
                 </div>
 
                 <div class="form__input-wrap">
@@ -276,7 +276,7 @@ session_start();
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    <?php require_once("admin.js");?>
+    <?php require_once("JS/admin.js");?>
 </script>
 
 

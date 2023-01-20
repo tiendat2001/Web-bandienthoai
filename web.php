@@ -529,7 +529,7 @@ session_start();
    
     <p>your email : <span><?php 
     echo $fetch_account['nickname']  ?></span></p>
-	<script src="app.js"></script>
+	<script src="JS/userWeb.js"></script>
 </body>
 
 </html>
