@@ -138,7 +138,7 @@ session_start();
                     <div class="product__items">
 
                         <?php 
-					$select_product=mysqli_query($conn,"SELECT  * FROM product WHERE type='iphone' ORDER BY CAST(price AS FLOAT) DESC ");
+					$select_product=mysqli_query($conn,"SELECT  * FROM products WHERE type='iphone' ORDER BY price DESC ");
 					if(mysqli_num_rows($select_product)>0)
 					{
 						// echo"dat";
@@ -152,7 +152,11 @@ session_start();
                             <h3 class="product__name"><?php echo $fetch_product['name'];?></h3>
                             <div>
                                 <h3 style="display: inline;" class="product__price">
-                                    <?php echo $fetch_product['price'];?></h3>
+                                    <?php
+                                     $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
+                                     echo $formatted_number_price;
+                                     ?>
+                                     </h3>
                                 <h3 style="display: inline;"><sup>đ</sup> </h3>
                             </div>
                             <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
@@ -235,7 +239,7 @@ session_start();
 
 
                     <?php 
-                            $select_product=mysqli_query($conn,"SELECT * FROM product ORDER BY cast(price as float) DESC ");
+                            $select_product=mysqli_query($conn,"SELECT * FROM products ORDER BY price DESC ");
                             if(mysqli_num_rows($select_product)>0){
                                 // echo"dat";
                                 while($fetch_product=mysqli_fetch_assoc($select_product)){
@@ -247,7 +251,11 @@ session_start();
                                         <h3 class="product__name"><?php echo $fetch_product['name'];?></h3>
                                         <div>
                                             <h3 style="display: inline;" class="product__price">
-                                            <?php echo $fetch_product['price'];?></h3>
+                                            <?php 
+                                              $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
+                                              echo $formatted_number_price;
+                                            
+                                            ?></h3>
                                             <h3 style="display: inline;"><sup>đ</sup> </h3>
                                         </div>
                                         <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>

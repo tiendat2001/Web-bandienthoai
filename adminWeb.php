@@ -82,7 +82,7 @@ session_start();
 
                 <tbody class="cartTbl_body">
                 <?php 
-                    $select_product=mysqli_query($conn,"SELECT * FROM product ORDER BY type ");
+                    $select_product=mysqli_query($conn,"SELECT * FROM products ORDER BY type ");
                     if(mysqli_num_rows($select_product)>0){
                         // echo"dat";
                         while($fetch_product=mysqli_fetch_assoc($select_product)){
@@ -94,7 +94,14 @@ session_start();
                         <td class="td__product__img">
                             <img  src="<?php echo $fetch_product['image'];?>" alt="">                         
                         </td>
-                        <td> <h3 style="display: inline;" class="product__price"><?php echo $fetch_product['price'];?></h3></td>
+                        <td> <h3 style="display: inline;" class="product__price">
+                        <?php 
+                        $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
+                        echo $formatted_number_price;
+                        
+                        ?>
+                        </h3>
+                        </td>
                         <td class="td__product__name">
                         <?php echo $fetch_product['type'];?>
                         </td>
@@ -154,7 +161,7 @@ session_start();
                 </div>
 
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="price" placeholder="GIÁ" required>
+                    <input class="form__input" type="number" name="price" placeholder="GIÁ" required>
                 </div>
 
                 <div class="form__input-wrap">
@@ -180,7 +187,7 @@ session_start();
         $price = $_POST['price'];
         $type = $_POST['type'];
 
-        $sql = "SELECT * FROM product WHERE name='$name'";
+        $sql = "SELECT * FROM products WHERE name='$name'";
         $result = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($result);
 
@@ -188,7 +195,7 @@ session_start();
             echo "<script type='text/javascript'>alert('SẢN PHẨM ĐÃ TỒN TẠI');</script>";
         } else {
             //code to insert new product
-            $query = "INSERT INTO product (name,image,price,type) 
+            $query = "INSERT INTO products (name,image,price,type) 
                     VALUES ('$name', '$img', '$price','$type')";
             if ($conn->query($query) === TRUE) {
                
