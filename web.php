@@ -87,7 +87,7 @@ session_start();
                             </a>
                             Hỗ trợ
                         </li>
-                        <li class="header__navbar-item">Tiếng Việt</li>
+                       
                         
 
                         <?php 
@@ -103,6 +103,8 @@ session_start();
 
                         <li style="font-weight:bold" class="header__navbar-item">Xin chào, <?php echo $fetch_account['nickname'];  ?> </li>
                         <!-- <li class="header__navbar-item">Đăng nhập</li> -->
+                        <!-- NÚT ĐĂNG XUẤT -->
+                        <li  class="header__navbar-item">  <a style=" text-decoration: none; color:white;" href="http://localhost/Web-bandienthoai/login.php">Đăng xuất</a></li>
                     </ul>
 
 
@@ -526,9 +528,7 @@ session_start();
     <img class="sidePicture sidePicture-right" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     <img class="sidePicture sidePicture-left" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
 
-   
-    <p>your email : <span><?php 
-    echo $fetch_account['nickname']  ?></span></p>
+
 	<script src="JS/userWeb.js"></script>
 </body>
 

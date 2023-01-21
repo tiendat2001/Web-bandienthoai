@@ -100,7 +100,7 @@ btn_addcart.forEach(function(button,index){
 function addcart(productName,productImg,productPrice){
   // row cần thêm vào 
   var addtr = document.createElement("tr")
-  trcontent='<td class="td__product__img-name"> <img src="'+productImg+'" alt=""><span class="td__product__name">' +productName+'</span></td><td>  <h3 style="display: inline;" class="product__price">'+productPrice+'</h3></td><td><input style="width: 30px; outline:none;" type="number" value="1" min="0"></td><td class="cart-delete" style="cursor:pointer">XÓA</td> '
+  trcontent='<td class="td__product__img-name"> <img src="'+productImg+'" alt=""><span class="td__product__name">'+ productName +'</span></td><td>  <h3 style="display: inline;" class="product__price">'+productPrice+'</h3></td><td><input style="width: 30px; outline:none;" type="number" value="1" min="0"></td><td class="cart-delete" style="cursor:pointer">XÓA</td> '
   addtr.innerHTML= trcontent
   // check xem san pham da co trong gio hang chua
   var cartItem = document.querySelectorAll(".cartTbl_body tr")
