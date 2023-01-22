@@ -20,10 +20,11 @@ if (!$conn) {
 $name = $_POST['name'];
 $image = $_POST['image'];
 $price = $_POST['price'];
+$price_format = doubleval(str_replace(".", "", $price));
 $type = $_POST['type'];
 
 // Update the row in the database
-$sql = "UPDATE  products SET name='$name', image='$image', price='$price', type='$type' WHERE  name='$name'";
+$sql = "UPDATE  products SET name='$name', image='$image', price='$price_format', type='$type' WHERE  name='$name'";
 if (mysqli_query($conn, $sql)) {
     // header('Location: http://localhost/Web-bandienthoai/adminWeb.php');
     // exit();

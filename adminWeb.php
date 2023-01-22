@@ -110,7 +110,8 @@ session_start();
                         ?>
                        
                        <?php 
-                            echo '<td  class="product-edit" style="cursor:pointer" onClick="openEditForm(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\',\''.$fetch_product['price'].'\',\''.$fetch_product['type'].'\')">CHỈNH SỬA</td>';
+                            $formatted_price = number_format($fetch_product['price'], 0, '.', '.');
+                            echo '<td  class="product-edit" style="cursor:pointer" onClick="openEditForm(\''.$fetch_product['name'].'\',\''.$fetch_product['image'].'\',\''.$formatted_price.'\',\''.$fetch_product['type'].'\')">CHỈNH SỬA</td>';
                         ?>
                     </tr>
                 <?php
@@ -145,7 +146,7 @@ session_start();
         </form>
     </section>
 
-    <!------------------------ FORM THEM SAN PHAM ----------------------------------->
+    <!------------------------ FORM THÊM SẢN PHẨM----------------------------------->
     <div id="addProduct" class="container__addProduct">
         
         <div class="addProduct__title">
@@ -161,7 +162,7 @@ session_start();
                 </div>
 
                 <div class="form__input-wrap">
-                    <input class="form__input" type="number" name="price" placeholder="GIÁ" required>
+                    <input class="form__input" type="text" name="price" placeholder="GIÁ" required>
                 </div>
 
                 <div class="form__input-wrap">
@@ -185,6 +186,8 @@ session_start();
         $name = $_POST['name'];
         $img = $_POST['image'];
         $price = $_POST['price'];
+        // chuyen 250.000 ve 250000 trong database
+        $price_format = doubleval(str_replace(".", "", $price));
         $type = $_POST['type'];
 
         $sql = "SELECT * FROM products WHERE name='$name'";
@@ -192,11 +195,11 @@ session_start();
         $count = mysqli_num_rows($result);
 
         if($count > 0) {
-            echo "<script type='text/javascript'>alert('SẢN PHẨM ĐÃ TỒN TẠI');</script>";
+            echo "<script type='text/javascript'>window.onload=function(){alert('SẢN PHẨM ĐÃ TỒN TẠI');}</script>";
         } else {
             //code to insert new product
             $query = "INSERT INTO products (name,image,price,type) 
-                    VALUES ('$name', '$img', '$price','$type')";
+                    VALUES ('$name', '$img', '$price_format','$type')";
             if ($conn->query($query) === TRUE) {
                
 
@@ -240,7 +243,7 @@ session_start();
                 </div>
 
                 <div class="form__input-wrap">
-                    <input id="editForm__price" class="form__input" type="number" name="price" placeholder="GIÁ" required>
+                    <input id="editForm__price" class="form__input" type="text" name="price" placeholder="GIÁ" required>
                 </div>
 
                 <div class="form__input-wrap">
@@ -255,7 +258,7 @@ session_start();
             </form>
     <button id ="closeEditForm">X</button>
     </div>
-
+<!--  hiện thông báo sửa thông tin thành công -->
 <?php
       if(isset($_SESSION["successEdit_message"]) && !empty($_SESSION["successEdit_message"])){
         echo "<script type='text/javascript'>
