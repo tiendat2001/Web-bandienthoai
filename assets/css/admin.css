@@ -233,3 +233,30 @@
 .alert-addCartSuccess{
     background-color: #a8f0c6;
 }
+
+
+/* ------------------------------PHAN THONG TIN TAI KHOAN--------------------------- */ 
+.account__info{
+    margin:auto;
+    width: 1050px;
+    
+    
+}
+
+.account__info__header{
+    margin-top:20px;
+    text-align: center;
+    font-size:2rem;
+    margin-bottom: 50px;
+    border: 3px  rgb(17, 0, 255) solid;
+}
+
+
+.account__container{
+    display: flex;
+    justify-content: space-between;
+}
+.account__container h3{
+    line-height: 30px;
+    font-size: 1.5rem;
+}
