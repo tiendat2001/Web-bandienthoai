@@ -27,9 +27,8 @@ session_start();
 
     <title>Bandienthoai</title>
     <style>
-  <?php include "./assets/css/main.css" ?>
-  <?php include "./assets/css/base.css" ?>
-</style>
+    <?php include "./assets/css/main.css"?><?php include "./assets/css/base.css"?>
+    </style>
 
 </head>
 
@@ -87,8 +86,8 @@ session_start();
                             </a>
                             Hỗ trợ
                         </li>
-                       
-                        
+
+
 
                         <?php 
                             $username= $_SESSION['username'];  
@@ -99,12 +98,14 @@ session_start();
                                 // echo"dat";
                             $fetch_account=mysqli_fetch_assoc($select_account);       
                             };
-                         ?>	
+                         ?>
 
-                        <li style="font-weight:bold" class="header__navbar-item">Xin chào, <?php echo $fetch_account['nickname'];  ?> </li>
+                        <li style="font-weight:bold" class="header__navbar-item">Xin chào,
+                            <?php echo $fetch_account['nickname'];  ?> </li>
                         <!-- <li class="header__navbar-item">Đăng nhập</li> -->
                         <!-- NÚT ĐĂNG XUẤT -->
-                        <li  class="header__navbar-item">  <a style=" text-decoration: none; color:white;" href="http://localhost/Web-bandienthoai/login.php">Đăng xuất</a></li>
+                        <li class="header__navbar-item"> <a style=" text-decoration: none; color:white;"
+                                href="http://localhost/Web-bandienthoai/login.php">Đăng xuất</a></li>
                     </ul>
 
 
@@ -143,26 +144,33 @@ session_start();
 					$select_product=mysqli_query($conn,"SELECT  * FROM products WHERE type='iphone' ORDER BY price DESC ");
 					if(mysqli_num_rows($select_product)>0)
 					{
-						// echo"dat";
 						while($fetch_product=mysqli_fetch_assoc($select_product))
 						{
 							?>
 
+
                         <div class="product__item">
+                            <!--------- div wrap dan den link product_detail ------------->
+                            <?php
+                            echo ' <div class="product__item__detail-wrap" onClick="getDetailInfo(\''.$fetch_product['name'].'\')" >&nbsp</div>';
+                            ?>
 
                             <img src="<?php echo $fetch_product['image'];?>" alt="">
                             <h3 class="product__name"><?php echo $fetch_product['name'];?></h3>
                             <div>
+
                                 <h3 style="display: inline;" class="product__price">
                                     <?php
                                      $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
                                      echo $formatted_number_price;
                                      ?>
-                                     </h3>
+                                </h3>
                                 <h3 style="display: inline;"><sup>đ</sup> </h3>
                             </div>
                             <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
                         </div>
+
+
                         <?php
         				};
     				};
@@ -240,29 +248,32 @@ session_start();
                     <div class="productList__items">
 
 
-                    <?php 
+                        <?php 
                             $select_product=mysqli_query($conn,"SELECT * FROM products ORDER BY price DESC ");
                             if(mysqli_num_rows($select_product)>0){
                                 // echo"dat";
                                 while($fetch_product=mysqli_fetch_assoc($select_product)){
                                     ?>
-                                        <div class="product__item">
-
-                                        <img src="<?php echo $fetch_product['image'];?>"
-                                            alt="">
-                                        <h3 class="product__name"><?php echo $fetch_product['name'];?></h3>
-                                        <div>
-                                            <h3 style="display: inline;" class="product__price">
-                                            <?php 
+                        <div class="product__item">
+                             <!--------- div wrap dan den link product_detail ------------->
+                             <?php
+                            echo ' <div class="product__item__detail-wrap" onClick="getDetailInfo(\''.$fetch_product['name'].'\')" >&nbsp</div>';
+                            ?>
+                            
+                            <img src="<?php echo $fetch_product['image'];?>" alt="">
+                            <h3 class="product__name"><?php echo $fetch_product['name'];?></h3>
+                            <div>
+                                <h3 style="display: inline;" class="product__price">
+                                    <?php 
                                               $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
                                               echo $formatted_number_price;
                                             
                                             ?></h3>
-                                            <h3 style="display: inline;"><sup>đ</sup> </h3>
-                                        </div>
-                                        <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
-                                        </div>
-                                    <?php
+                                <h3 style="display: inline;"><sup>đ</sup> </h3>
+                            </div>
+                            <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
+                        </div>
+                        <?php
                                 };
                             };
 
@@ -352,7 +363,7 @@ session_start();
 
                             <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
                         </div> -->
-<!-- 
+                        <!-- 
                         <div class="product__item">
 
                             <img src="https://cdn.tgdd.vn/Products/Images/42/249944/oppo-a55-4g-thumb-new-600x600.jpg"
@@ -368,7 +379,7 @@ session_start();
 
                             <button class="product__item__button">THÊM VÀO GIỎ HÀNG</button>
                         </div> -->
-<!-- 
+                        <!-- 
                         <div class="product__item">
 
                             <img src="https://cdn.tgdd.vn/Products/Images/42/249944/oppo-a55-4g-thumb-new-600x600.jpg"
@@ -405,9 +416,9 @@ session_start();
                 </div>
 
             </section>
-		 <!-- PHAN GIO HANG -->
+            <!-- PHAN GIO HANG -->
 
-		 <section class="container__cart">
+            <section class="container__cart">
                 <button class="cart__closeForm">X</button>
                 <h2 class="container__cart__tiltle">GIỎ HÀNG </h2>
                 <form action="">
@@ -478,12 +489,12 @@ session_start();
             </section>
         </div>
 
-       
+
     </div>
 
 
 
-	<div class="footer">
+    <div class="footer">
         <div class="footer__grid">
             <div class="footer__row">
                 <a href="">CHÍNH SÁCH BẢO MẬT</a>
@@ -523,13 +534,18 @@ session_start();
             <h3>Sản phẩm đã có trong giỏ hàng</h3>
             <a class="alert__close">&times</a>
         </div>
-    </div>		
-    
+    </div>
+
     <img class="sidePicture sidePicture-right" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     <img class="sidePicture sidePicture-left" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
 
 
-	<script src="JS/userWeb.js"></script>
+
+    <script>
+    <?php require_once("JS/userWeb.js");?>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

@@ -190,6 +190,19 @@ function inputChange(){
   }
 }
 
+
+// chuyển link thông tin sản phẩm khi bấm vào sản phẩm
+function getDetailInfo(productName){
+  console.log(productName)
+  $.post('ProductInfo.php', {productName: productName}, function(data) {
+  // location.href="http://localhost/Web-bandienthoai/ProductDetail.php";
+  window.open('http://localhost/Web-bandienthoai/ProductDetail.php', '_blank');
+
+
+});
+} 
+
+
 // ẩn hiện giỏ hàng
 const cartIcon = document.querySelector(".footer__iconshop")
 cartIcon.addEventListener("click",function(){
@@ -205,4 +218,3 @@ cartClose.addEventListener("click",function(){
   document.querySelector(".container__cart").style.right="-100%"
   
 })
-  
