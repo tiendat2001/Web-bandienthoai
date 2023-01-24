@@ -2,9 +2,7 @@
 
 
 @include 'config.php';
-$db_name = 'Web bán điện thoại';
-$user_name = 'root';
-$user_password = '';
+include 'database.php';
 session_start();
 
 //    $conn = new PDO($db_name, $user_name, $user_password);

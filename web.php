@@ -141,7 +141,7 @@ session_start();
                     <div class="product__items">
 
                         <?php 
-					$select_product=mysqli_query($conn,"SELECT  * FROM products WHERE type='iphone' ORDER BY price DESC ");
+					$select_product=mysqli_query($conn,"SELECT  * FROM products WHERE type='iphone' ORDER BY price DESC limit 5 ");
 					if(mysqli_num_rows($select_product)>0)
 					{
 						while($fetch_product=mysqli_fetch_assoc($select_product))

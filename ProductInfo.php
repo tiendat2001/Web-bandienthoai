@@ -2,25 +2,25 @@
 
 
 @include 'config.php';
-$db_name = 'Web bán điện thoại';
-$user_name = 'root';
-$user_password = '';
+include 'database.php';
 session_start();
 
 
 //    $conn = new PDO($db_name, $user_name, $user_password);
-$conn = new mysqli("localhost",$user_name,$user_password,$db_name);
-
 if(isset($_POST['productName'])){
 
 $test= $_POST['productName'];
 
-   $select_product=mysqli_query($conn,"SELECT * FROM products where name ='".$test."'");
+   $select_product=mysqli_query($conn,"SELECT * FROM products,productsdetail where products.name ='".$test."' AND  products.name=productsdetail.name  " );
    $fetch_product=mysqli_fetch_assoc($select_product); 
 
    $_SESSION['ProductName_detail']=$fetch_product['name'];
-   $_SESSION['ProductImg_detail']=$fetch_product['image'];
-   $_SESSION['ProductPrice_detail']=$fetch_product['price'];
+   $_SESSION['ProductImg_detail']=$fetch_product['imageDetail'];
+
+   $formatted_number_price = number_format($fetch_product['price'], 0, '.', '.');
+   $_SESSION['ProductPrice_detail']= $formatted_number_price;
+
+   $_SESSION['ProductDescription_detail']=$fetch_product['description'];
   
 
 }

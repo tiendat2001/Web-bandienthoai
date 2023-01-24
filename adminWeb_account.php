@@ -1,12 +1,6 @@
 <?php 
 @include 'config.php';
-
-   $db_name = 'Web bán điện thoại';
-   $user_name = 'root';
-   $user_password = '';
-
-//    $conn = new PDO($db_name, $user_name, $user_password);
-$conn = new mysqli("localhost",$user_name,$user_password,$db_name);
+include 'database.php';
 session_start();
 ?>
 
@@ -45,6 +39,8 @@ session_start();
                 <li><a href="http://localhost/Web-bandienthoai/adminWeb_account.php"><i class="fas fa-user sidebar__icon"></i>Tài khoản</a></li>
                 <li><a href="#"><i class="fa-solid fa-cart-shopping sidebar__icon"></i></i>Đơn hàng</a></li>
                 <li><a href="#"><i class="fa-solid fa-message sidebar__icon"></i>Tin nhắn</a></li>
+                <li><a href="http://localhost/Web-bandienthoai/login.php"><i class="fa-solid fa-right-from-bracket sidebar__icon"></i>Đăng xuất</a></li>
+
                 </ul>
         </div>
 

@@ -196,7 +196,7 @@ function getDetailInfo(productName){
   console.log(productName)
   $.post('ProductInfo.php', {productName: productName}, function(data) {
   // location.href="http://localhost/Web-bandienthoai/ProductDetail.php";
-  window.open('http://localhost/Web-bandienthoai/ProductDetail.php', '_blank');
+  window.open('http://localhost/Web-bandienthoai/ProductDetailWeb.php', '_blank');
 
 
 });
