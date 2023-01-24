@@ -32,10 +32,10 @@ if(isset($_POST['username'])){
         }
         // vua ko phai la admin, user thi sai mat khau
         else{
-            echo '<script type="text/JavaScript"> 
-        alert("Sai tên đăng nhập hoặc mật khẩu")
-      
-     </script>';
+            echo "<script type='text/javascript'>
+            window.onload=function(){alert('SAI TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU');};
+                    </script>";
+          
         }
         
     //  header('Location: http://localhost/Web-bandienthoai/login.php');
@@ -170,13 +170,13 @@ if(isset($_POST['username'])){
 
         <form method="POST" action="#">
             <div class="form__input-wrap">
-                <input class="form__input" type="text" name="username" placeholder="Tên đăng nhập" />
+                <input class="form__input" type="text" name="username" placeholder="Tên đăng nhập" required>
             </div>
             <div class="form__input-wrap">
-                <input class="form__input" type="password" name="password" placeholder="Mật khẩu" />
+                <input class="form__input" type="password" name="password" placeholder="Mật khẩu" required>
             </div>
             <div class="form__input-wrap">
-                <input type="submit" type="submit" value="Đăng nhập" class="btn-login" />
+                <input type="submit" type="submit" value="Đăng nhập" class="btn-login" >
             </div>
 
         </form>
