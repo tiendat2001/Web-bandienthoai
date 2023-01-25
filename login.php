@@ -25,8 +25,8 @@ if(isset($_POST['username'])){
         $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='admin' limit 1"; 
         $result = $conn -> query($sql);  
         if( $result->num_rows ==1){
-        $_SESSION['username']= $uname;
-        $_SESSION['password']= $password;
+        $_SESSION['usernameAdmin']= $uname;
+        $_SESSION['passwordAdmin']= $password;
         header('Location: http://localhost/Web-bandienthoai/adminWeb.php');
         exit();
         }
