@@ -21,7 +21,7 @@ session_start();
     <!-- font icon -->
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css" />
 
-    <title>Bandienthoai</title>
+    <title><?php echo  $_SESSION['ProductName_detail'];   ?></title>
     <style>
    <?php include "./assets/css/main.css" ?> 
    <?php include "./assets/css/base.css" ?> 
@@ -84,8 +84,8 @@ session_start();
                    
                     <?php 
                             $username= $_SESSION['username'];  
-                            $password=$_SESSION['password'];
-                            $select_account=mysqli_query($conn,"select * from account where username='".$username."'AND password='".$password."' limit 1");
+                         
+                            $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
                             if(mysqli_num_rows($select_account)>0)
                             {
                                 // echo"dat";

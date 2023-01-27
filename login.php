@@ -3,32 +3,44 @@
 @include 'database.php';
 @include 'config.php';
 session_start();
-
+// user damtiendat 1,  dinhlam 123   admin nguyensontung 1
 if(isset($_POST['username'])){
     
     $uname=$_POST['username'];
     $password=$_POST['password'];
+    // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
-    // check xem tai khoan co la user hay ko
-    $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='user' limit 1";
+   
+    // var_dump($hashed_password);
+    // $result=password_verify($password, $hashed_password);
+    // var_dump($result);
+  
+    // $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='user' limit 1";
+    $sql = "SELECT password, role FROM account WHERE username = '$uname' LIMIT 1";
     
     $result = $conn -> query($sql);
-    
+    // neu dung username, check tiep password
     if( $result->num_rows ==1){
-        $_SESSION['username']= $uname;
-        $_SESSION['password']= $password;
+    //     $_SESSION['username']= $uname;
+    
+    //     header('Location: http://localhost/Web-bandienthoai/web.php');
+    //     exit();
+    // }
+    $row = $result->fetch_assoc();
+    $hashed_password = $row['password'];
+    $role = $row['role'];
+  // check xem tai khoan co la user hay ko
+    if (password_verify($password, $hashed_password) && $role == "user") {
+        $_SESSION['username'] = $uname;
         header('Location: http://localhost/Web-bandienthoai/web.php');
         exit();
     }
     // neu ko thi tiep tuc check xem co phai admin hay ko
     else{
-        $sql="select * from account where username='".$uname."'AND password='".$password."' AND role='admin' limit 1"; 
-        $result = $conn -> query($sql);  
-        if( $result->num_rows ==1){
-        $_SESSION['usernameAdmin']= $uname;
-        $_SESSION['passwordAdmin']= $password;
-        header('Location: http://localhost/Web-bandienthoai/adminWeb.php');
-        exit();
+        if (password_verify($password, $hashed_password) && $role == "admin") {
+            $_SESSION['usernameAdmin'] = $uname;
+            header('Location: http://localhost/Web-bandienthoai/adminWeb.php');
+            exit();
         }
         // vua ko phai la admin, user thi sai mat khau
         else{
@@ -38,8 +50,16 @@ if(isset($_POST['username'])){
           
         }
         
-    //  header('Location: http://localhost/Web-bandienthoai/login.php');
+  
     }
+
+    // ko dung username trong database
+} else{
+    echo "<script type='text/javascript'>
+    window.onload=function(){alert('SAI TÊN ĐĂNG NHẬP HOẶC MẬT KHẨU');};
+            </script>";
+  
+}
         /*
           var LoginFailed = document.querySelector(".login-failed")
         LoginFailed.style.visibility="visible"

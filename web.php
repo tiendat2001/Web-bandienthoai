@@ -91,8 +91,8 @@ session_start();
 
                         <?php 
                             $username= $_SESSION['username'];  
-                            $password=$_SESSION['password'];
-                            $select_account=mysqli_query($conn,"select * from account where username='".$username."'AND password='".$password."' limit 1");
+                         
+                            $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
                             if(mysqli_num_rows($select_account)>0)
                             {
                                 // echo"dat";

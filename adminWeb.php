@@ -42,7 +42,7 @@ session_start();
     <div class="wrapper">
         
         <div class="sidebar">
-            <h2 class="sidebar__shopname">BANDIENTHOAI</h2>
+            <h2 class="sidebar__shopname">BANDIENTHOAI_ADMIN</h2>
                 <ul>
                 <li><a href="http://localhost/Web-bandienthoai/adminWeb.php"><i class="fas fa-home sidebar__icon"></i>Trang chủ</a></li>
                 <li><a href="http://localhost/Web-bandienthoai/adminWeb_account.php"><i class="fas fa-user sidebar__icon"></i>Tài khoản</a></li>
