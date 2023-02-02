@@ -90,23 +90,34 @@ session_start();
 
 
                         <?php
-                             
-                            $username= $_SESSION['username'];  
+                           $nickname= 'Khách';
+                           // néu chưa đăng nhập thì hiện nút đăng nhập
+                           $isLogin="Đăng nhập";
+
+                            if(isset($_SESSION['username'])){
+                                $username= $_SESSION['username'];  
                          
-                            $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
-                            if(mysqli_num_rows($select_account)>0)
-                            {
-                                // echo"dat";
-                            $fetch_account=mysqli_fetch_assoc($select_account);       
-                            };
+                                $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
+                                if(mysqli_num_rows($select_account)>0)
+                                {
+                                    // echo"dat";
+                                $fetch_account=mysqli_fetch_assoc($select_account);  
+                                $nickname= $fetch_account['nickname'];
+                                // nếu đã đăng nhập thì đổi chữ đăng nhập thành đăng xuất
+                                $isLogin="Đăng xuất";
+
+
+                                }
+                               
+                            } 
                          ?>
 
                         <li style="font-weight:bold" class="header__navbar-item">Xin chào,
-                            <?php echo $fetch_account['nickname'];  ?> </li>
+                            <?php echo $nickname;  ?> </li>
                         <!-- <li class="header__navbar-item">Đăng nhập</li> -->
                         <!-- NÚT ĐĂNG XUẤT -->
                         <li class="header__navbar-item"> <a style=" text-decoration: none; color:white;"
-                                href="http://localhost/Web-bandienthoai/login.php">Đăng xuất</a></li>
+                                href="http://localhost/Web-bandienthoai/login.php"> <?php echo $isLogin;  ?></a></li>
                     </ul>
 
 

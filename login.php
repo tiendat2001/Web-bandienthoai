@@ -2,7 +2,9 @@
 
 @include 'database.php';
 @include 'config.php';
+
 session_start();
+session_unset();
 // user damtiendat 1,  dinhlam 123   admin nguyensontung 1
 if(isset($_POST['username'])){
     
