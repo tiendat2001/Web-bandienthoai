@@ -1,10 +1,10 @@
 <?php
 
+// LUU TRU THONG TIN SAN PHAM, CHUYEN DEN ProductDetailWeb
 
 @include 'config.php';
 include 'database.php';
 session_start();
-
 
 //    $conn = new PDO($db_name, $user_name, $user_password);
 if(isset($_POST['productName'])){

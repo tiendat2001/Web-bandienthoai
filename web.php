@@ -89,7 +89,8 @@ session_start();
 
 
 
-                        <?php 
+                        <?php
+                             
                             $username= $_SESSION['username'];  
                          
                             $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
@@ -254,6 +255,8 @@ session_start();
                                 // echo"dat";
                                 while($fetch_product=mysqli_fetch_assoc($select_product)){
                                     ?>
+
+                        <!-- ô sản phẩm -->
                         <div class="product__item">
                              <!--------- div wrap dan den link product_detail ------------->
                              <?php

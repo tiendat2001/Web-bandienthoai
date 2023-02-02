@@ -13,7 +13,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Retrieve data from the form
+// lấy dữ liệu từ form
 
 $name = $_POST['name'];
 $image = $_POST['image'];

@@ -131,6 +131,7 @@ function addcart(productName,productImg,productPrice){
   var SuccessAddCart = document.querySelector(".alert-addCartSuccess")
   SuccessAddCart.style.visibility="visible"
 
+  // sau 3s biến mất
   setTimeout( function AlertAddCartSuccess(){
     document.querySelector(".alert-addCartSuccess").style.visibility="hidden"
   }, 3000)
@@ -152,7 +153,6 @@ function totalPrice(){
      sumPrice = sumPrice + parseFloat(priceDiv)*quantityDiv
   
   }
-  // console.log(sum.toLocaleString('de-DE'))
   // hien tong tien gia
   var totalPriceDiv = document.querySelector(".total-price")
   var cartIconDiv = document.querySelector(".cartIcon_price")
@@ -203,7 +203,7 @@ function getDetailInfo(productName){
 } 
 
 
-// ẩn hiện giỏ hàng
+// ẩn hiện thanh giỏ hàng phải
 const cartIcon = document.querySelector(".footer__iconshop")
 cartIcon.addEventListener("click",function(){
   
@@ -215,6 +215,6 @@ cartIcon.addEventListener("click",function(){
 
 const cartClose = document.querySelector(".cart__closeForm")
 cartClose.addEventListener("click",function(){
-  document.querySelector(".container__cart").style.right="-100%"
+  document.querySelector(".container__cart").style.right="-100%" // trượt biến mất
   
 })

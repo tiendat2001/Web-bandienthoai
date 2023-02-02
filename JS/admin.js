@@ -13,7 +13,8 @@
 //   })
 //   }
 //     }
-  
+
+
 // ------------------------------------------------PHAN XOA SAN PHAM---------------------------------------
 
 // XOA TRONG DATABASE, GUI THONG TIN DEN DELETE.PHP DE XOA
@@ -33,14 +34,30 @@ function deleteRow(productName) {
     alert(data);
   });
 }
-  //pass the id variable to the PHP script using an HTTP request (e.g. using jQuery or Fetch API)
   
 }
-
 // ---------------------------------PHAN SUA SAN PHAM------------------------------------------------------
+ // add sự kiện nút chỉnh sửa thông tin sản phẩm
+function openEditFormUI(){
+ 
+  const openEditForm_btn = document.querySelectorAll(".product-edit");
+  for(var i =0;i<openEditForm_btn.length;i++){
+    
+    openEditForm_btn[i].addEventListener("click", function() {
+    document.querySelector(".container__editProduct").style.display = "block"
+  })
+  }
+  const closeEditForm_btn = document.getElementById("closeEditForm");
+  closeEditForm_btn.addEventListener("click", function() {
+      document.querySelector(".container__editProduct").style.display = "none"
+  })
+  
+}
+openEditFormUI()
+
 function openEditForm(productName,productImage,productPrice,productType){
-  // mo form edit san pham
-  openEditFormUI()
+  // mo form edit san pham, fill thông tin các trường
+  // openEditFormUI()
   document.getElementById("editForm__name").value=productName
   document.getElementById("editForm__image").value=productImage
   document.getElementById("editForm__price").value=productPrice
@@ -65,20 +82,5 @@ btn_closeAddForm.addEventListener("click", function() {
 })
 
 
-// SU KIEN DONG MO FORM SUA THONG TIN SAN PHAM
-function openEditFormUI(){
-  const openEditForm_btn = document.querySelectorAll(".product-edit");
-  for(var i =0;i<openEditForm_btn.length;i++){
-    
-    openEditForm_btn[i].addEventListener("click", function() {
-    document.querySelector(".container__editProduct").style.display = "block"
-  })
-  }
-  const closeEditForm_btn = document.getElementById("closeEditForm");
-  closeEditForm_btn.addEventListener("click", function() {
-      document.querySelector(".container__editProduct").style.display = "none"
-  })
-  
-}
 
-openEditFormUI()
+
