@@ -352,7 +352,7 @@
     background-color: rgb(206, 187, 187);
     overflow-y: scroll;
     right:-100%;
-    z-index: 1;
+    z-index: 3;
     transition: all 0.3s ease;
     text-align: center;
 }

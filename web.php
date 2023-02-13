@@ -117,7 +117,7 @@ session_start();
                         <!-- <li class="header__navbar-item">Đăng nhập</li> -->
                         <!-- NÚT ĐĂNG XUẤT -->
                         <li class="header__navbar-item"> <a style=" text-decoration: none; color:white;"
-                                href="http://localhost/Web-bandienthoai/login.php"> <?php echo $isLogin;  ?></a></li>
+                                href="http://localhost/Web-bandienthoai/loginPage.php"> <?php echo $isLogin;  ?></a></li>
                     </ul>
 
 

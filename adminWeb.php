@@ -48,7 +48,7 @@ session_start();
                 <li><a href="http://localhost/Web-bandienthoai/adminWeb_account.php"><i class="fas fa-user sidebar__icon"></i>Tài khoản</a></li>
                 <li><a href="#"><i class="fa-solid fa-cart-shopping sidebar__icon"></i></i>Đơn hàng</a></li>
                 <li><a href="#"><i class="fa-solid fa-message sidebar__icon"></i>Tin nhắn</a></li>
-                <li><a href="http://localhost/Web-bandienthoai/login.php"><i class="fa-solid fa-right-from-bracket sidebar__icon"></i>Đăng xuất</a></li>
+                <li><a href="http://localhost/Web-bandienthoai/loginPage.php"><i class="fa-solid fa-right-from-bracket sidebar__icon"></i>Đăng xuất</a></li>
 
                 </ul>
         </div>
