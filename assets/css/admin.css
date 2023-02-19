@@ -75,7 +75,7 @@
     align-items: center;
     
 }
-/* nut them san pham */
+/*----------------- NUT THEM SAN PHAM ------------------------------- */
 #openAddForm{ 
     width: 140px;
     height: 30px;
@@ -104,6 +104,25 @@
     border-radius: 3px;
 }
 
+/* truong upload file anh */
+.file__input{
+    outline: solid 2px black;
+    margin-top: 30px;
+    padding-top:10px;
+    height: 45px;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding-left: 10px;
+    vertical-align: middle;
+    color:gray;
+}
+
+.file__input:nth-child(2){
+    width: 90%;
+    margin-left:20px;
+}
 
 
 
@@ -234,7 +253,7 @@
     background-color: #a8f0c6;
 }
 
-
+  
 /* ------------------------------PHAN THONG TIN TAI KHOAN--------------------------- */ 
 .account__info{
     margin:auto;

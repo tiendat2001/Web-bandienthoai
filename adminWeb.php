@@ -156,12 +156,17 @@ session_start();
                 <h3>THÊM SẢN PHẨM</h3>
             </div>
             
-            <form id="addForm" method="POST" action="#">
+            <form id="addForm" method="POST" action="#" enctype="multipart/form-data">
                 <div class="form__input-wrap">
                     <input class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" required>
                 </div>
                 <div class="form__input-wrap">
-                    <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
+                    <!-- <input class="form__input" type="text" name="image" placeholder="LINK ẢNH" required> -->
+                    <div class="file__input">
+                        <label for="file-input">CHỌN FILE ẢNH</label>
+                        <input  type="file" name="image" id="fileToUpload">
+                    </div>
+                   
                 </div>
 
                 <div class="form__input-wrap">
@@ -187,7 +192,9 @@ session_start();
    
     if(isset($_POST['name']) && ! empty($_POST['name'])) {
         $name = $_POST['name'];
-        $img = $_POST['image'];
+        $target_dir = "assets/img/";
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        // $img = $_POST['image'];
         $price = $_POST['price'];
         // chuyen 250.000 ve 250000 trong database
         $price_format = doubleval(str_replace(".", "", $price));
@@ -202,7 +209,7 @@ session_start();
         } else {
             //code to insert new product
             $query = "INSERT INTO products (name,image,price,type) 
-                    VALUES ('$name', '$img', '$price_format','$type')";
+                    VALUES ('$name', '$target_file', '$price_format','$type')";
             if ($conn->query($query) === TRUE) {
                
 
@@ -237,12 +244,14 @@ session_start();
                 <h3>SỬA THÔNG TIN SẢN PHẨM</h3>
             </div>
             
-            <form id="addForm" method="POST" action="editProduct.php">
+            <form id="addForm" method="POST" action="editProduct.php" enctype="multipart/form-data">
                 <div class="form__input-wrap">
                     <input id="editForm__name" class="form__input" type="text" name="name" placeholder="TÊN SẢN PHẨM" readonly>
                 </div>
-                <div class="form__input-wrap">
-                    <input id="editForm__image" class="form__input" type="text" name="image" placeholder="LINK ẢNH" required>
+
+                <div class="file__input">
+                        <label for="file-input">CHỌN FILE ẢNH</label>
+                        <input  type="file" name="image" id="fileToUpload">
                 </div>
 
                 <div class="form__input-wrap">

@@ -59,7 +59,7 @@ function openEditForm(productName,productImage,productPrice,productType){
   // mo form edit san pham, fill thông tin các trường
   // openEditFormUI()
   document.getElementById("editForm__name").value=productName
-  document.getElementById("editForm__image").value=productImage
+  // document.getElementById("fileToUpload").value=productImage
   document.getElementById("editForm__price").value=productPrice
   document.getElementById("editForm__type").value=productType
 

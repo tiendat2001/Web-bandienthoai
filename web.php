@@ -552,6 +552,19 @@ session_start();
 
     <img class="sidePicture sidePicture-right" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     <img class="sidePicture sidePicture-left" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
+    
+<!--  
+     <div class="modal">
+        <div class="modal__overlay">
+
+        </div>
+
+        <div class="modal__body">
+            <div class="modal__inner">
+                
+            </div>
+        </div>
+    </div> -->
 
 
 
