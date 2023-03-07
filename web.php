@@ -112,8 +112,12 @@ session_start();
                             } 
                          ?>
 
-                        <li style="font-weight:bold" class="header__navbar-item">Xin chào,
-                            <?php echo $nickname;  ?> </li>
+                                            
+                        <?php if ($nickname === 'Khách'): ?>
+                            <li style="font-weight:bold" class="header__navbar-item">Xin chào, <?php echo $nickname; ?></li>
+                        <?php else: ?>
+                            <li onclick="openInfoAccount()" style="font-weight:bold" class="header__navbar-item">Xin chào, <?php echo $nickname; ?></li>
+                        <?php endif; ?>
                         <!-- <li class="header__navbar-item">Đăng nhập</li> -->
                         <!-- NÚT ĐĂNG XUẤT -->
                         <li class="header__navbar-item"> <a style=" text-decoration: none; color:white;"
@@ -553,18 +557,43 @@ session_start();
     <img class="sidePicture sidePicture-right" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     <img class="sidePicture sidePicture-left" src="https://cdn.tgdd.vn/2022/12/banner/Phai-TGDD-80x270-1.webp" alt="">
     
-<!--  
+ 
      <div class="modal">
         <div class="modal__overlay">
 
         </div>
 
         <div class="modal__body">
-            <div class="modal__inner">
-                
+        <?php 
+           
+           
+            $select_account=mysqli_query($conn,"select * from account where username='".$username."' limit 1");
+            if(mysqli_num_rows($select_account)>0)
+            {
+                // echo"dat";
+            $fetch_account=mysqli_fetch_assoc($select_account);       
+            }
+           
+        ?>
+            <div class="modal__InfoAccount">
+               <div class="InfoAccount__header">
+                   <h1>THÔNG TIN TÀI KHOẢN</h1>
+               </div>
+
+               <div class="InfoAccount__body">
+                    <h3 style="text-transform:uppercase">TÊN NGƯỜI DÙNG:     <?php echo $fetch_account['nickname'];  ?></h3>
+                    <h3>EMAIL:  <?php echo $fetch_account['email'];  ?></h3>
+                    <h3>SỐ ĐIỆN THOẠI:  <?php echo $fetch_account['phone'];  ?></h3>
+                    <h3 style="text-transform:uppercase">QUYỀN TRUY CẬP:  <?php echo $fetch_account['role'];  ?> </h3>
+
+                    <!-- nut dong form -->
+                    <a onclick="closeInfoAccount()" class="closeInfoAccount_btn">&times</a>
+               </div>
+            
+        
             </div>
         </div>
-    </div> -->
+    </div>
 
 
 

@@ -344,7 +344,7 @@
 .container__cart{
     /* can giua gio hang */
     position: fixed;
-    right:0px;
+    /* right:0px; */
     width: 400px;
     top:0px;
     height: 1200px;
@@ -572,4 +572,56 @@
     font-size: 15px;
     padding: 14px 10px;
     text-align: center;
+}
+
+/* ---------------------------------------MODAL-----------------------------------  */
+/* the chua toan bo man hinh */
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display: flex;
+    z-index: 3;
+    display: none;
+}
+
+.modal__overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 4;
+
+}
+
+.modal__body{
+    background-color: white;
+    border-radius: 5px;
+    margin:200px auto;
+    z-index: 5;
+    width: 500px;
+    height: 400px;
+    position: relative;
+}
+
+.InfoAccount__header{
+    text-align: center;
+    color:blue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.InfoAccount__body h3{
+    line-height: 30px;
+    font-size: 1.5rem;
+    margin-left:10px;
+}
+
+.closeInfoAccount_btn {
+    position: absolute;
+    right:5px;
+    top:5px;
+    font-size: 3rem;
 }

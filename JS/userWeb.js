@@ -57,7 +57,7 @@ const btn_addcart = product.querySelectorAll("button")
 
 
 // duyet qua cac nut, moi nut add event 
-// su kien khi bam nut them vao gio
+// su kien khi bam nut them vao gio , GOI HAM ADDCART
 btn_addcart.forEach(function(button,index){
   button.addEventListener("click",function(){
     // chon nut da duoc click
@@ -96,7 +96,7 @@ btn_addcart.forEach(function(button,index){
 //   }
 
 
-
+// ----------------------THEM SAN PHAM VAO GIO HANG
 function addcart(productName,productImg,productPrice){
   // row cần thêm vào 
   var addtr = document.createElement("tr")
@@ -143,7 +143,7 @@ function addcart(productName,productImg,productPrice){
   inputChange()
 }
 
-// chinh gia tien khi thay doi gio hang
+//---------- chinh gia tien khi thay doi gio hang
 function totalPrice(){
   var cartItem = document.querySelectorAll(".cartTbl_body tr")
   var sumPrice = 0
@@ -163,7 +163,7 @@ function totalPrice(){
 
 
 
-// add su kien nut xoa vao tat ca gio hang
+// ------------------ ADD SU KIEN XOA VAO NUT XOA TRONG GIO HANG
 function deleteCart(){
   var cartItem = document.querySelectorAll(".cartTbl_body tr")  
   // lap so nut can add su kien
@@ -179,6 +179,8 @@ function deleteCart(){
 }
   }
 
+
+//--------- THAY DOI SO LUONG TRONG GIO HANG
 function inputChange(){
   var cartItem = document.querySelectorAll(".cartTbl_body tr")  
   // lap so nut can add su kien
@@ -191,7 +193,7 @@ function inputChange(){
 }
 
 
-// chuyển link thông tin sản phẩm khi bấm vào sản phẩm
+//---------- chuyển link thông tin sản phẩm khi bấm vào sản phẩm
 function getDetailInfo(productName){
   console.log(productName)
   $.post('ProductInfo.php', {productName: productName}, function(data) {
@@ -203,7 +205,7 @@ function getDetailInfo(productName){
 } 
 
 
-// ẩn hiện thanh giỏ hàng phải
+//---------- ẩn hiện thanh giỏ hàng phải
 const cartIcon = document.querySelector(".footer__iconshop")
 cartIcon.addEventListener("click",function(){
   
@@ -218,3 +220,14 @@ cartClose.addEventListener("click",function(){
   document.querySelector(".container__cart").style.right="-100%" // trượt biến mất
   
 })
+
+//DONG MO MODAL THONG TIN TAI KHOAN
+function openInfoAccount(){
+  const modalDiv = document.querySelector(".modal")
+  modalDiv.style.display="block"
+}
+
+function closeInfoAccount(){
+  const modalDiv = document.querySelector(".modal")
+  modalDiv.style.display="none"
+}
